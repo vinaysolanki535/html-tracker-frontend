@@ -77,14 +77,12 @@ function Home() {
     }
 
     const updateScrollPercentage = (scroll) => {
-        console.log("ttttt1")
         const user = JSON.parse(localStorage.getItem('user'));
         axios.post(`https://sore-blue-kitten-sari.cyclic.app/track/${user.userName}`, {
             trackPercentage: scroll
         })
             .then((response) => {
                 console.log(response);
-                console.log("ttttt2")
             })
             .catch((error) => {
                 console.log(error);
@@ -93,11 +91,8 @@ function Home() {
 
     const handelScroll = () => {
         const scroll = getScrollPercentage()
-        console.log("ttttt3")
         const user = JSON.parse(localStorage.getItem('user'));
-        console.log(user)
         if (user.track < 100 && ((scroll < 90 && scroll > user.track + 10) || (scroll > 90 && scroll > user.track))) {
-            console.log("ttttt4")
             updateScrollPercentage(scroll);
             localStorage.setItem('user', JSON.stringify({ ...user, track: scroll }));
         }
