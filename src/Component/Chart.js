@@ -31,7 +31,7 @@ function Chart({data}) {
   return (
       <div style={{ width: "40%", marginLeft : "20px" }}>
         <BarChart
-          ylabel="User Count"
+          ylabel="User percentge"
           xlabel="Reading Percentage"
           width={600}
           height={500}
